@@ -2,7 +2,7 @@ name: Manual install
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened,synchronize]
   workflow_dispatch:
     inputs:
       run-tests:
