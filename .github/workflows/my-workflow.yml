@@ -1,6 +1,8 @@
 name: Manual install
 
 on:
+  pull_request:
+    types: [opened]
   workflow_dispatch:
     inputs:
       run-tests:
@@ -29,5 +31,5 @@ jobs:
       run: npm run build      
       
     - name: test
-      if :  ${{ inputs.run-tests }} 
+      if :  ${{ inputs.run-tests  || github.event_name == 'pull_request' }}
       run: npm test
